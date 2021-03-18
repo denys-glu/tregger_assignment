@@ -1,5 +1,5 @@
 const axios = require("axios");
-module.exports.YouTube = async(req, channelId = "UC-4H50_RIqgXol2GlEdhxQQ", searchTerm = "") => {
+module.exports.YouTube = async(req, channelId = "UClqhvGmHcvWL9w3R48t9QXQ", searchTerm = "") => {
   try {
     const response = await axios
       .get(`https://www.googleapis.com/youtube/v3/search`, {
@@ -9,7 +9,8 @@ module.exports.YouTube = async(req, channelId = "UC-4H50_RIqgXol2GlEdhxQQ", sear
           type: 'video',
           channelId: req.params.channelId || channelId,
           q: req.params.searchTerm || searchTerm,
-          part: 'snippet'
+          part: 'snippet',
+          order: 'date'
         }
       })
       // console.log(`response,data`, response.data)
