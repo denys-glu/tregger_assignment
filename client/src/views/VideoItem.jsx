@@ -1,9 +1,11 @@
 import React from 'react';
 
 const VideoItem = ({ video, onVideoSelect, setShowModal }) => {
+  
   const markUp = () => {
     return {__html: video.snippet.title}
   }
+
   return (
     <React.Fragment>
       <div className="card " style={{ width: 18 + "rem" }} onClick={() => { onVideoSelect(video); setShowModal(true) }} >

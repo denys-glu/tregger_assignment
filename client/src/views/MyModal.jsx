@@ -2,12 +2,14 @@ import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
 const MyModal = ({ show, video, setShowModal }) => {
-  console.log(`video`, video)
-  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
+  
+  if (!video) return ""
+  
   const markUp = () => {
     return { __html: video.snippet.title }
-  }
-  if (video === null) return ""
+  };
+
+  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
 
   return (
     <Modal show={show} onHide={() => setShowModal(false)} size="lg" centered>
@@ -15,8 +17,8 @@ const MyModal = ({ show, video, setShowModal }) => {
         <Modal.Title><span dangerouslySetInnerHTML={markUp()}></span></Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" src={videoSrc}></iframe>
+        <div className="embed-responsive embed-responsive-16by9">
+          <iframe className="embed-responsive-item" src={videoSrc} title={video.snippet.title}/>
         </div>
         {video.snippet.description}
       </Modal.Body>

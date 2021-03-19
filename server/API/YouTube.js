@@ -1,6 +1,6 @@
 const axios = require("axios");
 module.exports.YouTube = async(req, channelId = "UClqhvGmHcvWL9w3R48t9QXQ", searchTerm = "") => {
-  console.log(`req.params.searchTerm`, req.params.searchTerm)
+
   try {
     const response = await axios
       .get(`https://www.googleapis.com/youtube/v3/search`, {
@@ -15,7 +15,7 @@ module.exports.YouTube = async(req, channelId = "UClqhvGmHcvWL9w3R48t9QXQ", sear
           pageToken: req.params.pageToken || ""
         }
       })
-    console.log(`response.data`, response.data)
+
     return ({
       status: 'Success',
       videos: response.data.items,
