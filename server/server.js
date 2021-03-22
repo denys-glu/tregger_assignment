@@ -9,9 +9,10 @@ app.use(cors(), express.urlencoded({ extended: true }), express.json());
 
 require("./routes/myRoutes.routes")(app);
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '..', 'client/build')));
+console.log(`__dirname`, path.join(__dirname, '..', '/client/build/index.html'))
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'))
+  res.sendFile(path.join(__dirname, '..', '/client/build/index.html'))
 });
 
 const server = app.listen(PORT, () => console.log(`The server is all fired up on port ${PORT}`));
