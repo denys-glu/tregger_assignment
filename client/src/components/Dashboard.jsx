@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 //Components
-import SearchBar from './SearchBar';
-import VideoItem from '../views/VideoItem';
-import Button from '../views/Button';
-import Modal from '../views/MyModal';
-import Pagination from './Pagination';
+import SearchBar from 'components/SearchBar';
+import VideoItem from 'views/VideoItem';
+import Button from 'views/Button';
+import Modal from 'views/MyModal';
+import Pagination from 'components/Pagination';
 
 //Custom Hooks
-import useVideos from '../hooks/useVideos';
+import useVideos from 'hooks/useVideos';
 
 const Dashboard = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -38,7 +38,7 @@ const Dashboard = () => {
           <SearchBar onFormSubmit={submitSearch} />
         </div>
         <div className="col-12 col-sm-3 d-grid d-md-flex justify-content-md-end mt-2 mt-sm-0">
-          <Button text="Change Columns" style="btn-info btn-block" onClickHandler={updateColumnsAmount} />
+          <Button text="Change Columns" styles="btn-info btn-block" onClickHandler={updateColumnsAmount} />
         </div>
 
       </div>

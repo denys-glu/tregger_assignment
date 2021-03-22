@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import youtube from '../apis/youtube';
+import youtube from 'apis/youtube';
 
 const useVideos = (defaultSearchTerm) => {
   const [data, setData] = useState([]);
@@ -13,7 +13,6 @@ const useVideos = (defaultSearchTerm) => {
 
     let response;
     if (action) {
-      console.log(`data[action]`, data[action])
       response = await youtube.get(`/${term}/${data[action]}`);
     } else {
       response = await youtube.get(`/${term}`);
