@@ -10,7 +10,7 @@ app.use(cors(), express.urlencoded({ extended: true }), express.json());
 require("./routes/myRoutes.routes")(app);
 
 app.use(express.static(path.join(__dirname, '..', 'client/build')));
-console.log(`__dirname`, path.join(__dirname, '..', '/client/build/index.html'))
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', '/client/build/index.html'))
 });
