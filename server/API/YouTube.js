@@ -1,11 +1,13 @@
 const axios = require("axios");
+const YOUTUBE_API_KEY = process.env.API_KEY || "AIzaSyCvgaZ8VF3Q_H_mDq7XJCzUeeF5jfyUsng";
+
 module.exports.YouTube = async(req, channelId = "UClqhvGmHcvWL9w3R48t9QXQ", searchTerm = "") => {
 
   try {
     const response = await axios
       .get(`https://www.googleapis.com/youtube/v3/search`, {
         params: {
-          key: 'AIzaSyCvgaZ8VF3Q_H_mDq7XJCzUeeF5jfyUsng',
+          key: YOUTUBE_API_KEY,
           maxResults: req.params.amount || 12,
           type: 'video',
           channelId: req.params.channelId || channelId,
